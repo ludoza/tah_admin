@@ -12,6 +12,12 @@ class TahAdminViewMixin:
     def tah_err_view(self):
         raise Exception('err')
         
+    @expose('/tah/model/<model_id>')
+    def tah_index_get_one(self, model_id):
+        model = self.get_one(model_id)
+        json_data = {c.name: getattr(model, c.name) for c in model.__table__.columns}
+        return jsonify(json_data)
+        
     @expose('/tah/list/json')
     def tah_index_view_json(self):
         count, data = self._tah_index_view()
