@@ -20,16 +20,12 @@ cd ~/prj
 python3.6 -m venv venv
 # activate venv and instal flask-admin deps
 source venv/bin/activate
-pip install flask-admin flask_sqlalchemy
+pip install flask-admin flask_sqlalchemy paho-mqtt
 # git clone our tah-admin project and install it editable using pip
-git clone https://github.com/ludoza/tah-admin.git
+git clone https://github.com/ludoza/tah_admin.git
 cd tah-admin
 pip install -e .
-# git clone flask-admin to use their example code
-cd ..
-git clone https://github.com/flask-admin/flask-admin.git
-cd flask-admin/examples/sqla/
-vim app.py # import tah_admin and change or mixin tag_admin classes as seen below
+cd examples/sqla/
 python app.py 
 ```
 
